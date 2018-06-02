@@ -4,10 +4,17 @@ import { Component, OnInit } from '@angular/core';
   selector: 'main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
-  //styles: [`h2 {color: red;}`, ``]
 })
 export class MainComponent implements OnInit {
   pageName: string = "Film Catalog Dashboard";
+
+  isRed = true;
+  value: number = Math.floor(4.15);
+
+  website: {} = {
+    url: 'http://google.com',
+    title: 'Google Site'
+  }
 
   list: string[] = ['asd', 'asd']; 
 

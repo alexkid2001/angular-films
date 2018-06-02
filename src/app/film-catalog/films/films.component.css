@@ -1,6 +1,8 @@
 .example-card {
-    max-width: 400px;
-  }
-
-
-  div {color: red}
+/*    max-width: 400px;*/
+	vertical-align: top;
+}
+img[mat-card-image] {
+	max-height: 300px;
+	width: auto;
+}
