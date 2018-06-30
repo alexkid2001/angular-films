@@ -1,21 +1,25 @@
 <mat-card class="example-card">
-  <img mat-card-image src="{{imgUrl}}" alt="{{name}}">
+  <img mat-card-image src="{{fileItem.imgUrl}}" alt="{{fileItem.name}}">
   <mat-card-header>
-    <mat-card-title>{{name}}</mat-card-title>
-    <mat-card-subtitle>{{year}}</mat-card-subtitle>
+    <mat-card-title>{{fileItem.name}}</mat-card-title>
+    <mat-card-subtitle>{{fileItem.year}}</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content class="descr">
+  <mat-card-content class="fileItem.descr">
       <!-- <details-inner [info]='description' (update)='setUpdatedValue($event)' >
           {{film.description.substring(0,100)}}
 
       </details-inner> -->
 
-          {{description.substring(0,100)}}...
+          {{fileItem.description.substring(0,100)}}...
   </mat-card-content>
   <mat-card-actions>
     <button (click)='addFavorite()' mat-button [innerText] = "addFavoriteClick? 'Добавить в избрранное' : 'Удалить из избранного'  "></button>
     <!-- <button (click)='addFavorite()' mat-icon-button>
       <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
     </button> -->
+
+    <mat-icon class=""mat-18 matTooltip="Добавить в избранное"  (click)='addFavorite()'>
+      {{addFavoriteClick? 'favorite' : 'favorite_border'}}
+    </mat-icon>
   </mat-card-actions>
 </mat-card>
