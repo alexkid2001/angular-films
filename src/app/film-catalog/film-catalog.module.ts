@@ -13,7 +13,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import { FilmItemComponent } from './film-item/film-item.component';
-// import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -26,7 +26,8 @@ import { FilmItemComponent } from './film-item/film-item.component';
     MatSelectModule,
     MatToolbarModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
   declarations: [
     MainComponent, 

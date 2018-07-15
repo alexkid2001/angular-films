@@ -2,15 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-export class filmsType {
-  id: number;
-  favorit: boolean;
-  name: string;
-  year: string;
-  imgUrl: string;
-  description: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -55,6 +46,10 @@ export class FilmService {
 
   getPopularFilms (page?: number) {
     return this.http.get(`${this.movieUrl}/popular?page=${page}${this.params}`)
+  }
+
+  getPopularActors (page?: number) {
+    return this.http.get(`${this.personUrl}/popular?page=${page}${this.params}`)
   }
 
 }

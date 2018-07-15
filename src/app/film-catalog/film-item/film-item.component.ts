@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class FilmItemComponent implements OnInit {
 
-  @Input() fileItem: Object[] = [];
+  @Input('filmData') film: Object[] = [];
 
   @Output() update = new EventEmitter<boolean>();
   value: string;

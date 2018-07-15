@@ -1,13 +1,13 @@
 <mat-card class="menu-card">
   <mat-toolbar color="menu-toolbar">
     <mat-toolbar-row>
-      <span>В избранное добавленно: {{favoriteCnt}} элементов</span>
+      <span>В избранное добавленно: 0 элементов</span>
       <span class="example-spacer"></span>
       <!-- <mat-form-field class="example-full-width">
         <input matInput #postalCode placeholder="Поиск" value="" [(ngModel)]="searchFilm">
       </mat-form-field> -->
       <div>
-        <mat-form-field>
+        <!-- <mat-form-field>
           <mat-select 
             placeholder="Сортировка" 
             class="sort_select" 
@@ -18,7 +18,7 @@
             </mat-option>
 
           </mat-select>
-        </mat-form-field>
+        </mat-form-field> -->
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -32,7 +32,7 @@
     *ngFor="let film of films"
     colspan=1 >
     <film-item 
-      [fileItem] = "film"
+      [filmData] = "film"
       (update)="setUpdatedValue($event)"
       >
     </film-item>

@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FilmService, filmsType } from '../film.service';
+import { FilmService } from '../film.service';
 // import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 // import { element } from 'protractor';
 import { Film } from '../../film';
+import { Actor } from '../../actor';
+
 
 
 @Component({
@@ -15,6 +17,7 @@ export class FilmsComponent implements OnInit {
   // aditionalTitle: string;
   // films: filmsType[];
   films : Film[] = [];
+  actors: Actor[] = [];
   sortDirection: string;
   favoriteCnt: number = 0;
   currentPage: number = 1;
@@ -75,14 +78,24 @@ export class FilmsComponent implements OnInit {
   getFilms(page?:number) {
     this.filmsService.getPopularFilms(page).subscribe(
       (filmList: any) => {
-        this.initProps(filmList);
+        this.initPropsFilms(filmList);
       },
       err => {
         console.log("error");
       })
   }
 
-  initProps(films){
+  getActors(page?:number){
+    this.filmsService.getPopularActors(page).subscribe(
+      (actorList: any) => {
+        this.initPropsActor(actorList);
+      },
+      err => {
+        console.log("error");
+      })
+  }
+
+  initPropsFilms(films){
     films.results.forEach(film => {
       this.films.push({
         title: film.title,
@@ -94,11 +107,23 @@ export class FilmsComponent implements OnInit {
     });
     console.log(this.films);
   }
+
+  initPropsActor(apiData){
+    apiData.results.forEach(data => {
+      this.actors.push({
+        name: data.name,
+        popularity: data.popularity,
+        image: `${this.filmsService.midImgPath}${data['poster_path']}`
+      });
+    });
+    console.log(this.films);
+  }
+
     
   ngOnInit() { 
-  //  this.films = this.filmsService.getFilms(); 
-  console.log("Hook Parent, Инициализация родительского компонента");
-    this.getFilms(this.currentPage);
+    this.getFilms();
+    this.getActors();
+
   }
 
 }

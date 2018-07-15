@@ -1,25 +1,25 @@
 <mat-card class="example-card">
-  <img mat-card-image src="{{fileItem.imgUrl}}" alt="{{fileItem.name}}">
+  <img mat-card-image src="{{film.poster}}" alt="{{film.title}}">
   <mat-card-header>
-    <mat-card-title>{{fileItem.name}}</mat-card-title>
-    <mat-card-subtitle>{{fileItem.year}}</mat-card-subtitle>
+    <mat-card-title>{{film.title}}</mat-card-title>
+    <mat-card-subtitle>{{film.releaseDate}}</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content class="fileItem.descr">
+  <mat-card-content>
       <!-- <details-inner [info]='description' (update)='setUpdatedValue($event)' >
           {{film.description.substring(0,100)}}
 
       </details-inner> -->
 
-          {{fileItem.description.substring(0,100)}}...
+          {{film.overview.substring(0,100)}}...
   </mat-card-content>
   <mat-card-actions>
-    <button (click)='addFavorite()' mat-button [innerText] = "addFavoriteClick? 'Добавить в избрранное' : 'Удалить из избранного'  "></button>
+    <!-- <button (click)='addFavorite()' mat-button [innerText] = "addFavoriteClick? 'Добавить в избрранное' : 'Удалить из избранного'  "></button> -->
     <!-- <button (click)='addFavorite()' mat-icon-button>
       <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
     </button> -->
 
-    <mat-icon class=""mat-18 matTooltip="Добавить в избранное"  (click)='addFavorite()'>
+    <!-- <mat-icon class=""mat-18 matTooltip="Добавить в избранное"  (click)='addFavorite()'>
       {{addFavoriteClick? 'favorite' : 'favorite_border'}}
-    </mat-icon>
+    </mat-icon> -->
   </mat-card-actions>
 </mat-card>
